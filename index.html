@@ -1,100 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Temporizador hacia el 4 de noviembre de 2024 - Borde Band">
-    <title>Borde Band - Temporizador</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Temporizador hacia el 4 de noviembre de 2024 - Borde Band" />
+    <title>Borde</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            background-color: #121212;
-            color: white;
-            text-align: center;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #121212;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
 
+      .borde {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        padding: 10px 0;
+        background-color: #121212;
+        z-index: 1000;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        margin-top: 80px;
+      }
+
+      .timer {
+        font-size: 3rem;
+        margin-bottom: 40px;
+      }
+
+      .social-icons {
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 2rem;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 20px;
+      }
+
+      /* Responsive adjustments for mobile */
+      @media (max-width: 768px) {
         h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+          font-size: 1.5rem;
         }
 
         .timer {
-            font-size: 3rem;
-            margin-bottom: 40px;
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 2rem;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 20px;
+          font-size: 2rem;
         }
 
         .borde {
-            font-size: 2rem;
-            letter-spacing: 5px;
+          font-size: 2rem;
+          padding: 8px 0;
         }
+
+        .social-icons a {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.2rem;
+        }
+
+        .timer {
+          font-size: 1.5rem;
+        }
+
+        .borde {
+          font-size: 1.8rem;
+        }
+
+        .social-icons a {
+          font-size: 1.2rem;
+          margin: 0 10px;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <h1 class="borde">BORDE</h1>
+    </header>
 
-    <h1>Cuenta atrás para el 4 de Noviembre de 2024</h1>
-    <div class="timer" id="timer">00 días 00 horas 00 minutos 00 segundos</div>
-
-    <div class="social-icons">
-        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
+    <h1>Este 4 de noviembre te vas a enterar de todo:</h1>
+    <div class="timer" id="timer">XX días XX horas XX minutos XX segundos</div>
 
     <footer>
-        <p class="borde">BORDE</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/borde.arg" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a href="https://www.instagram.com/bordearg/" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.youtube.com/channel/UChqNkDA3vFml9-nKwqPU_nw" target="_blank"
+          ><i class="fab fa-youtube"></i
+        ></a>
+      </div>
     </footer>
 
     <script>
-        function updateTimer() {
-            const targetDate = new Date('November 4, 2024 00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+      function updateTimer() {
+        const targetDate = new Date("November 4, 2024 00:00:00").getTime();
+        const now = new Date().getTime();
+        const distance = targetDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('timer').innerHTML = `
+        document.getElementById("timer").innerHTML = `
                 ${days} días ${hours} horas ${minutes} minutos ${seconds} segundos
             `;
 
-            if (distance < 0) {
-                clearInterval(interval);
-                document.getElementById('timer').innerHTML = "¡Llegamos!";
-            }
+        if (distance < 0) {
+          clearInterval(interval);
+          document.getElementById("timer").innerHTML = "¡Llegamos!";
         }
+      }
 
-        const interval = setInterval(updateTimer, 1000);
+      const interval = setInterval(updateTimer, 1000);
     </script>
-
-</body>
+  </body>
 </html>
