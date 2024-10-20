@@ -27,6 +27,7 @@
         color: white;
         text-align: center;
         padding: 20px;
+        overflow: hidden; /* Deshabilita el scroll */
       }
 
       .borde {
@@ -50,7 +51,7 @@
       }
 
       .timer {
-        font-size: 3rem;
+        font-size: 2rem;
         margin-bottom: 40px;
       }
 
@@ -100,7 +101,7 @@
         }
 
         .borde {
-          font-size: 1.8rem;
+          font-size: 2.8rem;
         }
 
         .social-icons a {
@@ -111,11 +112,11 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1 class="borde">BORDE</h1>
-    </header>
 
-    <h1>Este 4 de noviembre te vas a enterar de todo:</h1>
+    <h1 class="borde">BORDE</h1>
+
+    <h1>Este 4 de noviembre,
+        <br> te vas a enterar de todo:</h1>
     <div class="timer" id="timer">XX días XX horas XX minutos XX segundos</div>
 
     <footer>
@@ -144,7 +145,8 @@
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         document.getElementById("timer").innerHTML = `
-                ${days} días ${hours} horas ${minutes} minutos ${seconds} segundos
+                ${days} días 
+                ${hours} horas ${minutes} minutos ${seconds} segundos
             `;
 
         if (distance < 0) {
